@@ -126,7 +126,7 @@ const Home = (props) => {
             setData("Please select the users")
             return
         }
-        const response = await axios.post("http://localhost:3000/sendmail", userData)
+        const response = await axios.post("https://userapiass.herokuapp.com/sendmail", userData)
         if (response.data.success) {
             setLoading(false)
             setError(false)
