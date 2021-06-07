@@ -161,7 +161,7 @@ const Home = (props) => {
                 { message ? <Alert color="warning">{data}</Alert> : null}
                 {error ? <Alert color="warning">{data}</Alert> : null}
 
-                <Table striped>
+                <Table striped className="elements">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -173,15 +173,19 @@ const Home = (props) => {
                             <th>Update/Delete</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         {
                             users.message.map((user, i) => {
                                 return (
                                     <tr>
                                         <th scope="row">{i + 1}</th>
-                                        <td><input type="checkbox" value={user._id}
-                                            onChange={checkboxChange}
-                                        /></td>
+                                        <td className="check">
+                                            <input className="form-check-input" type="checkbox" value={user._id} id="send"
+                                                onChange={checkboxChange}
+                                            />
+                                            <label className="form-check-label" htmlFor="send">Send</label>
+
+                                        </td>
                                         <td>{user.name}</td>
                                         <td>{user.mobileNumber}</td>
                                         <td>{user.email}</td>
