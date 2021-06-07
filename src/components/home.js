@@ -100,7 +100,6 @@ const Home = (props) => {
                 setData(response.data.message)
             }
             else if (!response.data.success) {
-                setMessage(true)
                 setError(true)
                 setData(response.data.message)
             }
@@ -122,13 +121,12 @@ const Home = (props) => {
         sendData.forEach((user) => {
             userData.push(user[0])
         })
-        if (sendDetails.length > 0) {
+        if (sendData.length == 0) {
             setError(true)
-            setMessage(true)
             setData("Please select the users")
             return
         }
-        const response = await axios.post("https://userapiass.herokuapp.com/sendmail", userData)
+        const response = await axios.post("http://localhost:3000/sendmail", userData)
         if (response.data.success) {
             setLoading(false)
             setError(false)
